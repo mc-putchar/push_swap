@@ -6,11 +6,28 @@
 /*   By: mcutura <mcutura@student.42berlin.de>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/08 00:26:45 by mcutura           #+#    #+#             */
-/*   Updated: 2023/06/10 16:10:37 by mcutura          ###   ########.fr       */
+/*   Updated: 2023/06/10 17:42:47 by mcutura          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_roll.h"
+
+int	roll_size(t_roll *roll)
+{
+	int		i;
+	t_roll	*start;
+
+	if (!roll)
+		return (0);
+	i = 1;
+	start = roll->next;
+	while (start != roll)
+	{
+		++i;
+		start = start->next;
+	}
+	return (i);
+}
 
 t_roll	*roll_new(int value)
 {

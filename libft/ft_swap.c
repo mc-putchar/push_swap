@@ -1,32 +1,20 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_roll.h                                          :+:      :+:    :+:   */
+/*   ft_swap.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mcutura <mcutura@student.42berlin.de>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/06/10 13:17:03 by mcutura           #+#    #+#             */
-/*   Updated: 2023/06/10 17:42:56 by mcutura          ###   ########.fr       */
+/*   Created: 2023/06/10 17:34:42 by mcutura           #+#    #+#             */
+/*   Updated: 2023/06/10 17:37:39 by mcutura          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef FT_ROLL_H
-# define FT_ROLL_H
-
-# include <stdlib.h>
-
-typedef struct s_roll
+void	ft_swap(int *a, int *b)
 {
-	int				value;
-	unsigned int	rank;
-	struct s_roll	*next;
-	struct s_roll	*prev;
-}	t_roll;
+	int	tmp;
 
-t_roll	*roll_new(int value);
-void	destroy_roll(t_roll **roll);
-int		roll_push(t_roll **roll, t_roll *slice);
-t_roll	*roll_pop(t_roll **roll);
-int		roll_size(t_roll *roll);
-
-#endif
+	tmp = *a;
+	*a = *b;
+	*b = tmp;
+}
