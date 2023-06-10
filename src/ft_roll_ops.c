@@ -6,11 +6,11 @@
 /*   By: mcutura <mcutura@student.42berlin.de>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/10 16:09:47 by mcutura           #+#    #+#             */
-/*   Updated: 2023/06/10 16:15:21 by mcutura          ###   ########.fr       */
+/*   Updated: 2023/06/10 21:48:51 by mcutura          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_roll_ops.h"
+#include "ft_roll.h"
 
 int	roll_rotate(t_roll **roll)
 {
@@ -20,7 +20,7 @@ int	roll_rotate(t_roll **roll)
 	return (0);
 }
 
-int	roll_reverse_rotate(t_roll **roll)
+int	roll_rev_rotate(t_roll **roll)
 {
 	if (!roll || !*roll)
 		return (1);
