@@ -6,7 +6,7 @@
 /*   By: mcutura <mcutura@student.42berlin.de>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/10 14:42:00 by mcutura           #+#    #+#             */
-/*   Updated: 2023/06/10 15:28:05 by mcutura          ###   ########.fr       */
+/*   Updated: 2023/06/10 16:35:09 by mcutura          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,15 +14,16 @@
 
 int	main(int ac, char **av)
 {
-	char	**tab;
+	t_roll	*stack_a;
 
-	if (ac < 2)
-		return (0);
-	if (ac > 2)
-		tab = av + 1;
-	else
-		tab = ft_split(av[1], ' ');
-	if (integer_check(tab))
+	if (ac <= 2)
+		return (EXIT_SUCCESS);
+	stack_a = NULL;
+	if (ac > 2 && integer_check(av + 1))
 		error_handler(NULL);
-	return (0);
+	if (init_stack(av + 1, &stack_a))
+		error_handler(NULL);
+	print_stack(stack_a);
+	destroy_roll(&stack_a);
+	return (EXIT_SUCCESS);
 }

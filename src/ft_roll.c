@@ -6,7 +6,7 @@
 /*   By: mcutura <mcutura@student.42berlin.de>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/08 00:26:45 by mcutura           #+#    #+#             */
-/*   Updated: 2023/06/10 13:32:19 by mcutura          ###   ########.fr       */
+/*   Updated: 2023/06/10 16:10:37 by mcutura          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,30 +21,6 @@ t_roll	*roll_new(int value)
 		return (NULL);
 	new->value = value;
 	return (new);
-}
-
-int	roll_swap(t_roll **roll)
-{
-	t_roll	*first;
-	t_roll	*second;
-
-	if (!roll || !*roll || !(*roll)->next)
-		return (1);
-	first = *roll;
-	second = (*roll)->next;
-	if (first->prev == second)
-	{
-		*roll = second;
-		return (0);
-	}
-	first->next = second->next;
-	second->prev = first->prev;
-	first->prev = second;
-	second->next = first;
-	first->next->prev = first;
-	second->prev->next = second;
-	*roll = second;
-	return (0);
 }
 
 int	roll_push(t_roll **roll, t_roll *slice)
@@ -88,18 +64,15 @@ t_roll	*roll_pop(t_roll **roll)
 	return (slice);
 }
 
-int	roll_rotate(t_roll **roll)
+void	destroy_roll(t_roll **roll)
 {
-	if (!roll || !*roll)
-		return (1);
-	*roll = (*roll)->next;
-	return (0);
-}
+	t_roll	*tmp;
 
-int	roll_reverse_rotate(t_roll **roll)
-{
-	if (!roll || !*roll)
-		return (1);
-	*roll = (*roll)->prev;
-	return (0);
+	if (!roll)
+		return ;
+	while (*roll)
+	{
+		tmp = roll_pop(roll);
+		free(tmp);
+	}
 }

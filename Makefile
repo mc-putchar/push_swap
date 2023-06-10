@@ -6,7 +6,7 @@
 #    By: mcutura <mcutura@student.42berlin.de>      +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/06/10 15:28:27 by mcutura           #+#    #+#              #
-#    Updated: 2023/06/10 15:35:02 by mcutura          ###   ########.fr        #
+#    Updated: 2023/06/10 16:11:49 by mcutura          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -19,12 +19,13 @@ LIBFTDIR := libft
 #--- LIBRARIES ---
 LIBFT := $(LIBFTDIR)/libft.a
 #--- SOURCES ---
-SRCS := $(addprefix $(SRCDIR)/, main.c error_handler.c push_swap.c ft_roll.c)
+SRCS := $(addprefix $(SRCDIR)/, main.c error_handler.c push_swap.c ft_roll.c \
+	ft_roll_ops.c)
 #--- OBJECTS ---
 OBJS := $(addprefix $(OBJDIR)/, $(notdir $(SRCS:.c=.o)))
 #--- HEADERS ---
 HEADERS := $(addprefix $(INCDIR)/, push_swap.h ft_roll.h error_handler.h \
-	libft.h get_next_line.h ft_printf.h)
+	libft.h get_next_line.h ft_printf.h ft_roll_ops.h)
 #--- FLAGS ---
 CFLAGS := -Wall -Wextra -Werror -I$(INCDIR)
 LDFLAGS := -L$(LIBFTDIR)

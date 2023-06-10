@@ -6,7 +6,7 @@
 /*   By: mcutura <mcutura@student.42berlin.de>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/10 13:17:03 by mcutura           #+#    #+#             */
-/*   Updated: 2023/06/10 15:08:41 by mcutura          ###   ########.fr       */
+/*   Updated: 2023/06/10 16:10:46 by mcutura          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,5 +22,10 @@ typedef struct s_roll
 	struct s_roll	*next;
 	struct s_roll	*prev;
 }	t_roll;
+
+t_roll	*roll_new(int value);
+void	destroy_roll(t_roll **roll);
+int		roll_push(t_roll **roll, t_roll *slice);
+t_roll	*roll_pop(t_roll **roll);
 
 #endif
