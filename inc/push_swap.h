@@ -6,7 +6,7 @@
 /*   By: mcutura <mcutura@student.42berlin.de>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/30 18:10:22 by mcutura           #+#    #+#             */
-/*   Updated: 2023/06/10 14:41:37 by mcutura          ###   ########.fr       */
+/*   Updated: 2023/06/10 15:33:47 by mcutura          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,5 +18,7 @@
 # include "libft.h"
 # include "ft_roll.h"
 # include "error_handler.h"
+
+int	integer_check(char **tab);
 
 #endif

@@ -6,7 +6,7 @@
 /*   By: mcutura <mcutura@student.42berlin.de>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/09 00:51:19 by mcutura           #+#    #+#             */
-/*   Updated: 2023/06/10 14:44:18 by mcutura          ###   ########.fr       */
+/*   Updated: 2023/06/10 15:23:55 by mcutura          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,6 @@
 # include <stdlib.h>
 # include "libft.h"
 
-void	error_handler(int err, char *str, void *arg);
+void	error_handler(void *arg);
 
 #endif
