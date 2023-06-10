@@ -6,7 +6,7 @@
 /*   By: mcutura <mcutura@student.42berlin.de>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/30 18:10:15 by mcutura           #+#    #+#             */
-/*   Updated: 2023/06/10 17:31:19 by mcutura          ###   ########.fr       */
+/*   Updated: 2023/06/10 20:39:10 by mcutura          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,5 +66,16 @@ int	integer_check(char **tab)
 				return (EXIT_FAILURE);
 		}
 	}
+	return (EXIT_SUCCESS);
+}
+
+int	unique_check(int *arr, int size)
+{
+	int		i;
+
+	i = 0;
+	while (++i < size)
+		if (arr[i] == arr[i - 1])
+			return (EXIT_FAILURE);
 	return (EXIT_SUCCESS);
 }

@@ -6,7 +6,7 @@
 /*   By: mcutura <mcutura@student.42berlin.de>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/30 18:10:22 by mcutura           #+#    #+#             */
-/*   Updated: 2023/06/10 17:25:19 by mcutura          ###   ########.fr       */
+/*   Updated: 2023/06/10 20:38:43 by mcutura          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,5 +25,6 @@ void	print_stack(t_roll *stack_a);
 int		is_sorted(t_roll *stack_a);
 void	quicksort(int *tab, int size);
 int		*get_sorted_array(t_roll *stack_a, int *size);
+int		unique_check(int *arr, int size);
 
 #endif
