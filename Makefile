@@ -6,7 +6,7 @@
 #    By: mcutura <mcutura@student.42berlin.de>      +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/06/10 15:28:27 by mcutura           #+#    #+#              #
-#    Updated: 2023/06/11 18:11:22 by mcutura          ###   ########.fr        #
+#    Updated: 2023/06/11 19:36:38 by mcutura          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -28,7 +28,7 @@ OBJS := $(addprefix $(OBJDIR)/, $(notdir $(SRCS:.c=.o)))
 HEADERS := $(addprefix $(INCDIR)/, push_swap.h ft_roll.h error_handler.h \
 	libft.h get_next_line.h ft_printf.h ft_range.h)
 #--- FLAGS ---
-CFLAGS := -Wall -Wextra -Werror -g -I$(INCDIR)
+CFLAGS := -Wall -Wextra -Werror -I$(INCDIR)
 LDFLAGS := -L$(LIBFTDIR)
 LDLIBS := -lft
 
