@@ -6,7 +6,7 @@
 #    By: mcutura <mcutura@student.42berlin.de>      +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/05/02 12:21:15 by mcutura           #+#    #+#              #
-#    Updated: 2023/06/10 17:36:49 by mcutura          ###   ########.fr        #
+#    Updated: 2023/06/11 12:01:43 by mcutura          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -18,7 +18,7 @@ FILES := ft_atoi.c ft_bzero.c ft_calloc.c ft_isalnum.c ft_isascii.c \
 		 ft_strnstr.c ft_strrchr.c ft_strtrim.c ft_substr.c ft_tolower.c \
 		 ft_toupper.c ft_itoa.c ft_putchar_fd.c ft_putstr_fd.c ft_putendl_fd.c \
 		 ft_putnbr_fd.c ft_strmapi.c ft_isalpha.c ft_isdigit.c ft_striteri.c \
-		 ft_split_blocks.c ft_swap.c
+		 ft_split_blocks.c ft_swap.c ft_abs.c
 EXTRASRC := ft_printf.c ft_printf_utils.c ft_printf_converters.c \
 		get_next_line.c ft_printf_converters_hex.c ft_printf_handle_flags.c \
 		get_next_line_utils.c

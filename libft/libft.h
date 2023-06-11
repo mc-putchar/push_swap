@@ -6,7 +6,7 @@
 /*   By: mcutura <mcutura@student.42berlin.de>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/02 12:18:12 by mcutura           #+#    #+#             */
-/*   Updated: 2023/06/10 17:36:38 by mcutura          ###   ########.fr       */
+/*   Updated: 2023/06/11 12:01:34 by mcutura          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,9 @@ typedef struct s_list
 	struct s_list	*next;
 }					t_list;
 
+int		ft_abs(int n);
 void	ft_swap(int *a, int *b);
+
 int		ft_atoi(const char *nptr);
 void	ft_bzero(void *s, size_t n);
 void	*ft_calloc(size_t nmemb, size_t size);

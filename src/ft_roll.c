@@ -6,7 +6,7 @@
 /*   By: mcutura <mcutura@student.42berlin.de>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/08 00:26:45 by mcutura           #+#    #+#             */
-/*   Updated: 2023/06/10 21:05:40 by mcutura          ###   ########.fr       */
+/*   Updated: 2023/06/11 03:26:27 by mcutura          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,47 +40,6 @@ t_roll	*roll_new(int value)
 	return (new);
 }
 
-int	roll_push(t_roll **roll, t_roll *slice)
-{
-	if (!slice)
-		return (1);
-	if (!roll)
-		roll = malloc(sizeof(t_roll *));
-	if (!roll)
-		return (1);
-	if (!*roll)
-	{
-		slice->prev = slice;
-		slice->next = slice;
-		*roll = slice;
-		return (0);
-	}
-	slice->next = *roll;
-	slice->prev = (*roll)->prev;
-	(*roll)->prev->next = slice;
-	(*roll)->prev = slice;
-	*roll = slice;
-	return (0);
-}
-
-t_roll	*roll_pop(t_roll **roll)
-{
-	t_roll	*slice;
-
-	if (!roll || !*roll)
-		return (NULL);
-	slice = *roll;
-	if (slice->next == slice)
-	{
-		*roll = NULL;
-		return (slice);
-	}
-	slice->prev->next = slice->next;
-	slice->next->prev = slice->prev;
-	*roll = slice->next;
-	return (slice);
-}
-
 void	destroy_roll(t_roll **roll)
 {
 	t_roll	*tmp;
@@ -92,4 +51,16 @@ void	destroy_roll(t_roll **roll)
 		tmp = roll_pop(roll);
 		free(tmp);
 	}
+}
+
+int	get_roll_at(t_roll *roll, int index)
+{
+	int		i;
+
+	if (!roll)
+		return (0);
+	i = 0;
+	while (i++ < index)
+		roll = roll->next;
+	return (roll->value);
 }

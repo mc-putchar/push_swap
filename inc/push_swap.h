@@ -6,7 +6,7 @@
 /*   By: mcutura <mcutura@student.42berlin.de>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/30 18:10:22 by mcutura           #+#    #+#             */
-/*   Updated: 2023/06/10 23:35:42 by mcutura          ###   ########.fr       */
+/*   Updated: 2023/06/11 13:05:43 by mcutura          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,7 @@
 # include "libft.h"
 # include "ft_roll.h"
 # include "error_handler.h"
+# include "ft_range.h"
 
 # define SA		0
 # define RA		1
@@ -46,7 +47,21 @@ int		*get_sorted_array(t_roll *stack_a, int *size);
 int		unique_check(int *arr, int size);
 int		integer_check(char **tab);
 
-void	translate(t_roll **a, t_roll **b, int op);
-void	tr_pushes(t_roll **a, t_roll **b, int op);
+void	do_op(t_roll **a, t_roll **b, int op);
+void	ops_pushes(t_roll **a, t_roll **b, int op);
+
+void	sort_three(t_roll **stack_a);
+int		turbo_sort(t_roll **a);
+
+int		spin_to_max(t_roll *roll, int max);
+int		spin_to_min(t_roll *roll, int min);
+int		spin_to_lower(t_roll *roll, int val);
+int		spin_to_higher(t_roll *roll, int val);
+int		spin_to_value(t_roll *roll, int val);
+
+int		insert_cost(t_roll *b, int val, t_range *r);
+int		pushback_cost(t_roll *a, int val, t_range *r);
+t_cheap	*lowest_cost(t_roll *a, t_roll *b, t_range *r, int val);
+t_cheap	*find_cheapest(t_roll *a, t_roll *b, t_range *r);
 
 #endif

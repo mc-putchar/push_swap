@@ -6,7 +6,7 @@
 /*   By: mcutura <mcutura@student.42berlin.de>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/10 21:06:20 by mcutura           #+#    #+#             */
-/*   Updated: 2023/06/10 23:32:21 by mcutura          ###   ########.fr       */
+/*   Updated: 2023/06/11 05:22:26 by mcutura          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@
 ** op % 3 = 2: reverse rotate
 ** op 9 / 10: push [b->a] / [a->b]
 */
-void	translate(t_roll **a, t_roll **b, int op)
+void	do_op(t_roll **a, t_roll **b, int op)
 {
 	static const t_roll_op	ops[] = {[0] = &roll_swap, [1] = &roll_rotate, \
 	[2] = &roll_rev_rotate};
@@ -45,19 +45,19 @@ void	translate(t_roll **a, t_roll **b, int op)
 			exit(EXIT_FAILURE);
 	}
 	else
-		tr_pushes(a, b, op);
+		ops_pushes(a, b, op);
 }
 
-void	tr_pushes(t_roll **a, t_roll **b, int op)
+void	ops_pushes(t_roll **a, t_roll **b, int op)
 {
 	if (op == 9)
 	{
-		if (roll_push(b, roll_pop(a)) || !ft_printf("%s\n", g_ops_name[op]))
+		if (roll_push(a, roll_pop(b)) || !ft_printf("%s\n", g_ops_name[op]))
 			exit(EXIT_FAILURE);
 	}
 	else if (op == 10)
 	{
-		if (roll_push(a, roll_pop(b)) || !ft_printf("%s\n", g_ops_name[op]))
+		if (roll_push(b, roll_pop(a)) || !ft_printf("%s\n", g_ops_name[op]))
 			exit(EXIT_FAILURE);
 	}
 }

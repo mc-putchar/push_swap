@@ -1,22 +1,39 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_roll_ops.h                                      :+:      :+:    :+:   */
+/*   ft_range.h                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mcutura <mcutura@student.42berlin.de>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/06/10 16:08:56 by mcutura           #+#    #+#             */
-/*   Updated: 2023/06/10 16:11:04 by mcutura          ###   ########.fr       */
+/*   Created: 2023/06/11 01:00:13 by mcutura           #+#    #+#             */
+/*   Updated: 2023/06/11 12:11:35 by mcutura          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef FT_ROLL_OPS_H
-# define FT_ROLL_OPS_H
+#ifndef FT_RANGE_H
+# define FT_RANGE_H
 
-# include "ft_roll.h"
+typedef struct s_range
+{
+	int	min;
+	int	max;
+}	t_range;
 
-int	roll_rotate(t_roll **roll);
-int	roll_rev_rotate(t_roll **roll);
-int	roll_swap(t_roll **roll);
+
+typedef struct s_cheap
+{
+	int	ai;
+	int	bi;
+	int	ci;
+	int	dir;
+	int	i;
+}	t_cheap;
+
+struct s_roll;
+
+int		greater_of(int a, int b);
+int		lower_of(int a, int b);
+t_range	*get_roll_range(struct s_roll *b);
+void	update_range(t_range *r, int val);
 
 #endif
