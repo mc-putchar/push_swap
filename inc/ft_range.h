@@ -6,7 +6,7 @@
 /*   By: mcutura <mcutura@student.42berlin.de>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/11 01:00:13 by mcutura           #+#    #+#             */
-/*   Updated: 2023/06/11 16:04:54 by mcutura          ###   ########.fr       */
+/*   Updated: 2023/06/11 17:31:50 by mcutura          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,7 +34,7 @@ typedef struct s_cheap
 	int	ti;
 }	t_cheap;
 
-struct s_roll;
+struct	s_roll;
 
 int		greater_of(int a, int b);
 int		lower_of(int a, int b);

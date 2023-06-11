@@ -6,7 +6,7 @@
 #    By: mcutura <mcutura@student.42berlin.de>      +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/06/10 15:28:27 by mcutura           #+#    #+#              #
-#    Updated: 2023/06/11 13:06:06 by mcutura          ###   ########.fr        #
+#    Updated: 2023/06/11 18:11:22 by mcutura          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -21,7 +21,7 @@ LIBFT := $(LIBFTDIR)/libft.a
 #--- SOURCES ---
 SRCS := $(addprefix $(SRCDIR)/, main.c error_handler.c push_swap.c ft_roll.c \
 	ft_roll_ops.c sorting.c input_check.c ps_translator.c ft_range.c \
-	sort_three.c turbo_sort.c spinners.c howmuchisthefish.c)
+	sort_three.c turbo_sort.c spinners.c howmuchisthefish.c spoolup.c)
 #--- OBJECTS ---
 OBJS := $(addprefix $(OBJDIR)/, $(notdir $(SRCS:.c=.o)))
 #--- HEADERS ---

@@ -6,7 +6,7 @@
 /*   By: mcutura <mcutura@student.42berlin.de>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/11 13:03:33 by mcutura           #+#    #+#             */
-/*   Updated: 2023/06/11 16:08:24 by mcutura          ###   ########.fr       */
+/*   Updated: 2023/06/11 18:13:48 by mcutura          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -67,12 +67,8 @@ t_cheap	*lowest_cost(t_roll *a, t_roll *b, t_range *r, int val)
 	t_cheap	*cost;
 
 	cost = malloc(sizeof(t_cheap));
-	if (!cost)
-		return (NULL);
-	cost->ai = 0;
-	cost->bi = 0;
-	if (get_best_combo(spin_to_value(a, val), insert_cost(b, val, r), \
-	&cost->ai, &cost->bi))
+	if (!cost || get_best_combo(spin_to_value(a, val), \
+	insert_cost(b, val, r), &cost->ai, &cost->bi))
 		return (NULL);
 	if (cost->ai < 0 && cost->bi < 0)
 	{

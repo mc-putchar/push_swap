@@ -6,7 +6,7 @@
 /*   By: mcutura <mcutura@student.42berlin.de>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/10 16:46:05 by mcutura           #+#    #+#             */
-/*   Updated: 2023/06/10 23:45:41 by mcutura          ###   ########.fr       */
+/*   Updated: 2023/06/11 18:25:50 by mcutura          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,6 +24,22 @@ int	is_sorted(t_roll *roll)
 		if (start->value <= start->prev->value)
 			return (EXIT_FAILURE);
 		start = start->next;
+	}
+	return (EXIT_SUCCESS);
+}
+
+int	is_sorted_tab(int *tab, int size)
+{
+	int	i;
+
+	if (!tab || size < 2)
+		return (EXIT_FAILURE);
+	i = 0;
+	while (i < size - 1)
+	{
+		if (tab[i] > tab[i + 1])
+			return (EXIT_FAILURE);
+		++i;
 	}
 	return (EXIT_SUCCESS);
 }
