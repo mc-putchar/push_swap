@@ -6,7 +6,7 @@
 #    By: mcutura <mcutura@student.42berlin.de>      +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/05/02 12:21:15 by mcutura           #+#    #+#              #
-#    Updated: 2023/06/11 12:01:43 by mcutura          ###   ########.fr        #
+#    Updated: 2023/06/11 13:54:41 by mcutura          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -48,6 +48,7 @@ bonus: $(BONUSOBJS) $(HEADER)
 clean:
 	$(RM) $(OBJS)
 	$(RM) $(BONUSOBJS)
+	$(RM) $(EXTRAOBJS)
 
 fclean: clean
 	$(RM) $(NAME)
