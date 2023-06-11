@@ -6,7 +6,7 @@
 /*   By: mcutura <mcutura@student.42berlin.de>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/10 20:42:13 by mcutura           #+#    #+#             */
-/*   Updated: 2023/06/11 19:00:41 by mcutura          ###   ########.fr       */
+/*   Updated: 2023/06/11 19:40:21 by mcutura          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,7 +65,7 @@ int	input_check(char **tab)
 	i = -1;
 	while (++i < size)
 		arr[i] = ft_atoi(tab[i]);
-	if (integer_check(tab) || !is_sorted_tab(arr, size))
+	if (integer_check(tab))
 		return (free(arr), EXIT_FAILURE);
 	quicksort(arr, size);
 	if (unique_check(arr, size))

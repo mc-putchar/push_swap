@@ -6,7 +6,7 @@
 /*   By: mcutura <mcutura@student.42berlin.de>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/10 14:42:00 by mcutura           #+#    #+#             */
-/*   Updated: 2023/06/11 19:00:10 by mcutura          ###   ########.fr       */
+/*   Updated: 2023/06/11 19:41:20 by mcutura          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,6 +41,8 @@ int	main(int ac, char **av)
 	}
 	else if (input_check(av + 1) || init_stack(av + 1, &stack_a))
 		error_handler(NULL, NULL);
+	if (!is_sorted(stack_a))
+		return (destroy_roll(&stack_a), EXIT_SUCCESS);
 	i = roll_size(stack_a);
 	if (i <= 3)
 		sort_three(&stack_a);
