@@ -6,7 +6,7 @@
 /*   By: mcutura <mcutura@student.42berlin.de>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/30 18:10:22 by mcutura           #+#    #+#             */
-/*   Updated: 2023/06/11 13:05:43 by mcutura          ###   ########.fr       */
+/*   Updated: 2023/06/11 15:01:22 by mcutura          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,14 +53,14 @@ void	ops_pushes(t_roll **a, t_roll **b, int op);
 void	sort_three(t_roll **stack_a);
 int		turbo_sort(t_roll **a);
 
-int		spin_to_max(t_roll *roll, int max);
-int		spin_to_min(t_roll *roll, int min);
-int		spin_to_lower(t_roll *roll, int val);
-int		spin_to_higher(t_roll *roll, int val);
-int		spin_to_value(t_roll *roll, int val);
+t_cost	*spin_to_max(t_roll *roll, int max);
+t_cost	*spin_to_min(t_roll *roll, int min);
+t_cost	*spin_to_lower(t_roll *roll, int val);
+t_cost	*spin_to_higher(t_roll *roll, int val);
+t_cost	*spin_to_value(t_roll *roll, int val);
 
-int		insert_cost(t_roll *b, int val, t_range *r);
-int		pushback_cost(t_roll *a, int val, t_range *r);
+t_cost	*insert_cost(t_roll *b, int val, t_range *r);
+t_cost	*pushback_cost(t_roll *a, int val, t_range *r);
 t_cheap	*lowest_cost(t_roll *a, t_roll *b, t_range *r, int val);
 t_cheap	*find_cheapest(t_roll *a, t_roll *b, t_range *r);
 

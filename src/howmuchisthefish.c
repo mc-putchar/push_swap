@@ -6,7 +6,7 @@
 /*   By: mcutura <mcutura@student.42berlin.de>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/11 13:03:33 by mcutura           #+#    #+#             */
-/*   Updated: 2023/06/11 13:40:06 by mcutura          ###   ########.fr       */
+/*   Updated: 2023/06/11 16:08:24 by mcutura          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@
 ** else find the closest value smaller than val and push on top of it
 ** return the number of the operations 
 */
-int	insert_cost(t_roll *b, int val, t_range *r)
+t_cost	*insert_cost(t_roll *b, int val, t_range *r)
 {
 	if (val < r->min || val > r->max)
 		return (spin_to_max(b, r->max));
@@ -25,11 +25,40 @@ int	insert_cost(t_roll *b, int val, t_range *r)
 }
 
 // Calculate cost to push back a value into proper position in a
-int	pushback_cost(t_roll *a, int val, t_range *r)
+t_cost	*pushback_cost(t_roll *a, int val, t_range *r)
 {
 	if (val < r->min || val > r->max)
 		return (spin_to_min(a, r->min));
 	return (spin_to_higher(a, val));
+}
+
+int	get_best_combo(t_cost *c1, t_cost *c2, int *a, int *b)
+{
+	if (!c1 || !c2)
+		return (EXIT_FAILURE);
+	if (greater_of(c1->cost, c2->cost) < greater_of(c1->rcost, c2->rcost))
+	{
+		*a = c1->cost;
+		*b = c2->cost;
+	}
+	else
+	{
+		*a = c1->rcost * -1;
+		*b = c2->rcost * -1;
+	}
+	if (c1->cost + c2->rcost < greater_of(ft_abs(*a), ft_abs(*b)))
+	{
+		*a = c1->cost;
+		*b = c2->rcost * -1;
+	}
+	if (c1->rcost + c2->cost < greater_of(ft_abs(*a), ft_abs(*b)))
+	{
+		*a = c1->rcost * -1;
+		*b = c2->cost;
+	}
+	free(c1);
+	free(c2);
+	return (EXIT_SUCCESS);
 }
 
 // Calculate cost to rotate to value in a and push it to right position in b
@@ -40,21 +69,26 @@ t_cheap	*lowest_cost(t_roll *a, t_roll *b, t_range *r, int val)
 	cost = malloc(sizeof(t_cheap));
 	if (!cost)
 		return (NULL);
-	cost->ai = spin_to_value(a, val);
-	cost->bi = insert_cost(b, val, r);
+	cost->ai = 0;
+	cost->bi = 0;
+	if (get_best_combo(spin_to_value(a, val), insert_cost(b, val, r), \
+	&cost->ai, &cost->bi))
+		return (NULL);
 	if (cost->ai < 0 && cost->bi < 0)
 	{
 		cost->ci = greater_of(cost->ai, cost->bi);
+		cost->ti = ft_abs(lower_of(cost->ai, cost->bi));
 		cost->dir = -1;
 	}
 	else if (cost->ai > 0 && cost->bi > 0)
 	{
 		cost->ci = lower_of(cost->ai, cost->bi);
+		cost->ti = greater_of(cost->ai, cost->bi);
 		cost->dir = 1;
 	}
 	else
 	{
-		cost->ci = ft_abs(cost->ai) + ft_abs(cost->bi);
+		cost->ti = ft_abs(cost->ai) + ft_abs(cost->bi);
 		cost->dir = 0;
 	}
 	return (cost);
@@ -73,14 +107,17 @@ t_cheap	*find_cheapest(t_roll *a, t_roll *b, t_range *r)
 	while (i < size)
 	{
 		cost = lowest_cost(a, b, r, get_roll_at(a, i));
-		if (!cheapest || cost->ci < cheapest->ci)
+		if (!cost)
+			return (NULL);
+		if (!cheapest || cost->ti < cheapest->ti)
 		{
 			free(cheapest);
 			cheapest = cost;
-			cheapest->i = i;
 		}
 		else
 			free(cost);
+		if (cheapest->ti < i + 2)
+			break ;
 		i++;
 	}
 	return (cheapest);

@@ -6,7 +6,7 @@
 /*   By: mcutura <mcutura@student.42berlin.de>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/11 01:00:13 by mcutura           #+#    #+#             */
-/*   Updated: 2023/06/11 12:11:35 by mcutura          ###   ########.fr       */
+/*   Updated: 2023/06/11 16:04:54 by mcutura          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,11 @@ typedef struct s_range
 	int	max;
 }	t_range;
 
+typedef struct s_cost
+{
+	int	cost;
+	int	rcost;
+}	t_cost;
 
 typedef struct s_cheap
 {
@@ -26,7 +31,7 @@ typedef struct s_cheap
 	int	bi;
 	int	ci;
 	int	dir;
-	int	i;
+	int	ti;
 }	t_cheap;
 
 struct s_roll;

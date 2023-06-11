@@ -6,7 +6,7 @@
 /*   By: mcutura <mcutura@student.42berlin.de>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/10 21:06:20 by mcutura           #+#    #+#             */
-/*   Updated: 2023/06/11 05:22:26 by mcutura          ###   ########.fr       */
+/*   Updated: 2023/06/11 14:26:53 by mcutura          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,7 +41,7 @@ void	do_op(t_roll **a, t_roll **b, int op)
 	else if (op < 9)
 	{
 		if (ops[op - 6](a) || ops[op - 6](b) || \
-		ft_printf("%s\n", g_ops_name[op]))
+		!ft_printf("%s\n", g_ops_name[op]))
 			exit(EXIT_FAILURE);
 	}
 	else

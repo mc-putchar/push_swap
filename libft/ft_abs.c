@@ -6,13 +6,13 @@
 /*   By: mcutura <mcutura@student.42berlin.de>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/11 12:00:49 by mcutura           #+#    #+#             */
-/*   Updated: 2023/06/11 12:01:09 by mcutura          ###   ########.fr       */
+/*   Updated: 2023/06/11 14:05:18 by mcutura          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 int	ft_abs(int n)
 {
 	if (n < 0)
-		return (-n);
+		return (n * -1);
 	return (n);
 }
