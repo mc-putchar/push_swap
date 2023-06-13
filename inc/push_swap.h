@@ -6,7 +6,7 @@
 /*   By: mcutura <mcutura@student.42berlin.de>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/30 18:10:22 by mcutura           #+#    #+#             */
-/*   Updated: 2023/06/13 22:16:48 by mcutura          ###   ########.fr       */
+/*   Updated: 2023/06/13 22:25:06 by mcutura          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,7 +56,7 @@ void	sort_four(t_roll **a);
 
 void	realign(t_roll **a, t_roll **b, t_range *r);
 int		turbo_sort(t_roll **a);
-void	spoolup(t_roll **a, t_roll **b, t_cheap *c, void (*mode)());
+void	spoolup(t_roll **a, t_roll **b, t_cheap *c);
 
 t_cost	*spin_to_max(t_roll *roll, int max);
 t_cost	*spin_to_min(t_roll *roll, int min);
