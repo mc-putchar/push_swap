@@ -6,7 +6,7 @@
 /*   By: mcutura <mcutura@student.42berlin.de>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/30 18:10:22 by mcutura           #+#    #+#             */
-/*   Updated: 2023/06/11 18:30:36 by mcutura          ###   ########.fr       */
+/*   Updated: 2023/06/13 22:16:48 by mcutura          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,6 +32,7 @@
 # define PA		9
 # define PB		10
 
+void	push_swap(t_roll *stack_a);
 int		integer_check(char **tab);
 int		init_stack(char **tab, t_roll **stack_a);
 void	print_stack(t_roll *stack_a);
@@ -47,10 +48,15 @@ int		input_check(char **tab);
 
 void	do_op(t_roll **a, t_roll **b, int op);
 void	ops_pushes(t_roll **a, t_roll **b, int op, const char *ops_n[]);
+void	sim_op(t_roll **a, t_roll **b, int op);
 
+void	sort_two(t_roll **stack_a);
 void	sort_three(t_roll **stack_a);
+void	sort_four(t_roll **a);
+
+void	realign(t_roll **a, t_roll **b, t_range *r);
 int		turbo_sort(t_roll **a);
-void	spoolup(t_roll **a, t_roll **b, t_cheap *c);
+void	spoolup(t_roll **a, t_roll **b, t_cheap *c, void (*mode)());
 
 t_cost	*spin_to_max(t_roll *roll, int max);
 t_cost	*spin_to_min(t_roll *roll, int min);
