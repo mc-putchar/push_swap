@@ -6,7 +6,7 @@
 /*   By: mcutura <mcutura@student.42berlin.de>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/10 21:06:20 by mcutura           #+#    #+#             */
-/*   Updated: 2023/06/11 17:31:41 by mcutura          ###   ########.fr       */
+/*   Updated: 2023/06/13 18:29:12 by mcutura          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,4 +62,26 @@ void	ops_pushes(t_roll **a, t_roll **b, int op, const char *ops_n[])
 		if (roll_push(b, roll_pop(a)) || !ft_printf("%s\n", ops_n[op]))
 			exit(EXIT_FAILURE);
 	}
+}
+
+void	sim_op(t_roll **a, t_roll **b, int op)
+{
+	static const t_roll_op	ops[] = {[0] = &roll_swap, [1] = &roll_rotate, \
+	[2] = &roll_rev_rotate};
+
+	if (op < 0 || op > 10)
+		return ;
+	if (op < 3)
+		ops[op](a);
+	else if (op < 6)
+		ops[op - 3](b);
+	else if (op < 9)
+	{
+		ops[op - 6](a);
+		ops[op - 6](b);
+	}
+	else if (op == 9)
+		roll_push(a, roll_pop(b));
+	else if (op == 10)
+		roll_push(b, roll_pop(a));
 }

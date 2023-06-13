@@ -6,7 +6,7 @@
 /*   By: mcutura <mcutura@student.42berlin.de>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/10 16:46:05 by mcutura           #+#    #+#             */
-/*   Updated: 2023/06/11 18:25:50 by mcutura          ###   ########.fr       */
+/*   Updated: 2023/06/13 18:31:02 by mcutura          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ int	is_sorted(t_roll *roll)
 	t_roll	*start;
 
 	if (!roll)
-		return (1);
+		return (EXIT_FAILURE);
 	start = roll->next;
 	while (start != roll)
 	{
