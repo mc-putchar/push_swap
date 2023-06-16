@@ -6,7 +6,7 @@
 /*   By: mcutura <mcutura@student.42berlin.de>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/08 00:26:45 by mcutura           #+#    #+#             */
-/*   Updated: 2023/06/11 03:26:27 by mcutura          ###   ########.fr       */
+/*   Updated: 2023/06/13 22:12:31 by mcutura          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,4 +63,26 @@ int	get_roll_at(t_roll *roll, int index)
 	while (i++ < index)
 		roll = roll->next;
 	return (roll->value);
+}
+
+t_roll	**roll_copy(t_roll *roll)
+{
+	t_roll	**copy;
+	t_roll	*start;
+
+	if (!roll)
+		return (NULL);
+	copy = malloc(sizeof(t_roll *) * roll_size(roll));
+	if (!copy)
+		return (NULL);
+	start = roll->prev;
+	while (start != roll)
+	{
+		if (roll_push(copy, roll_new(start->value)))
+			return (destroy_roll(copy), NULL);
+		start = start->prev;
+	}
+	if (roll_push(copy, roll_new(start->value)))
+		return (destroy_roll(copy), NULL);
+	return (copy);
 }
